@@ -1,4 +1,4 @@
-$cell-size: 100px;
+$cell-size: 500px;
 $player-size: 0.8 * $cell-size;
 $shift: $cell-size - $player-size / 2;
 $col-count: 3;
@@ -31,16 +31,15 @@ $row-count: 5;
         background-color: #000;
         border-radius: 50%;
 
-        &--color--red{
-            background-color: red;
-        }
-        
-        &--color--green{
-            background-color: green;
-        }
-        
-        &--color--blue{
-            background-color: blue;
+        $colors: 
+        red #f00,
+        green #080,
+        blue #00f;
+
+        @each $name, $color in $colors{
+            &--color--#{$name}{
+                background-color: $color;
+            }
         }
 
         @for $row from 1 through $row-count{
